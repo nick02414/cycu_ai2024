@@ -54,3 +54,5 @@ plt.legend()
 # 顯示圖片
 plt.show()
 plt.savefig("C:/Users/USER/Desktop/oil.png")
+# 執行程式
+
