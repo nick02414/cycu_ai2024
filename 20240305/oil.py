@@ -5,7 +5,7 @@ from matplotlib.font_manager import FontProperties
 
 #/workspaces/cycu_ai2024/20240305/應用程式-2019年(含)以前 汽、柴、燃油歷史價格.html
 # 獲取 2019年前的網頁內容
-response = requests.get('/workspaces/cycu_ai2024/20240305/應用程式-2019年(含)以前 汽、柴、燃油歷史價格.html')
+response = requests.get('20240305/應用程式-2019年(含)以前 汽、柴、燃油歷史價格.html')
 soup = BeautifulSoup(response.text, 'html.parser')
 tables = soup.find_all('table')
 df3 = pd.read_html(str(tables[1]))[0]
@@ -13,7 +13,7 @@ df3 = pd.read_html(str(tables[1]))[0]
 print(df3)
 
 # 獲取網頁 2000 後的內容
-response = requests.get('/workspaces/cycu_ai2024/20240305/應用程式-2019年(含)以前 汽、柴、燃油歷史價格.html')
+response = requests.get('20240305/應用程式-2019年(含)以前 汽、柴、燃油歷史價格.html')
 # 解析網頁內容
 soup = BeautifulSoup(response.text, 'html.parser')
 # 找到所有的表格元素
