@@ -14,6 +14,7 @@ df_taiwan=gpd.read_file('/workspaces/cycu_ai2024/20240402/county/COUNTY_MOI_1090
 
 import requests
 import feedparser
+from matplotlib.font_manager import FontProperties
 
 county_list = []
 for num in range(1, 23):
@@ -50,7 +51,8 @@ df_weather = pd.DataFrame(county_list)
 ##################################################
 #plot taiwan using matplotlib
 import matplotlib.pyplot as plt
-
+# Set font properties
+font = FontProperties(fname='/usr/share/fonts/truetype/wqy/wqy-microhei.ttc', size=14)
 #merge df_taiwan and df_weather on df_taiwan.COUNTYNAME = df_weather.county 
 geo_taiwan = pd.merge(df_taiwan, df_weather, left_on='COUNTYNAME', right_on='county')
 
@@ -70,9 +72,9 @@ for x, y, label in zip(geo_taiwan.geometry.centroid.x, geo_taiwan.geometry.centr
 plt.show()
 
 #打上標題"11022127吳柏均"
-plt.title("11022127吳柏均", fontproperties='SimSun')
+plt.title("11022127吳柏均", fontproperties='font')
 
 #save to png file
-plt.savefig('20240402/taiwan_map2.png')
+plt.savefig('20240402/taiwan_map3.png')
 
 
